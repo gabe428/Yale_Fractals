@@ -1,0 +1,145 @@
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    ifs.DetIFS driver;
+
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("ifs.DetIFS"), "moduleToRun";
+    cwa.setReader ( "Discussion", "ifs/readers.det/discussion.html" );
+    cwa.setReader ( "Questions", "ifs/readers.det/questions.html" );
+    cwa.setReader ( "Details", "ifs/readers.det/details.html" );
+    cwa.setReader ( "Printing", "ifs/readers.random/print.html" );
+
+    // these initial values are ignored intentionally by the paramsLoadingFlag mechanism
+    driver.setParamsLoadingFlag(true);
+    ParamList ("Animation") {
+      driver.setNGenerations(4), "Generations to auto-run";
+      driver.setPauseTime(.5), "Pause length (seconds)";
+      driver.setSmooth(false), "Smooth scaling";
+    }
+    driver.makeMenu("Animation", 1);
+    driver.setParamsLoadingFlag(false);
+
+
+    // cwa.addWindowMenu("Window");
+    // immediate(cwa.setBackground(2)); // default is RosePeach, code order shown in windowmenu
+
+  }
+
+  Scenario("Sierpinski Gasket") {
+    driver.clearTransforms();
+    driver.setMcr(0,0,1,1);
+    driver.addTransform(0.5, 0.5, 0, 0, 0,   0);
+    driver.addTransform(0.5, 0.5, 0, 0, 0.5, 0);
+    driver.addTransform(0.5, 0.5, 0, 0, 0,   0.5);
+  }
+
+  Scenario("Sierpinski Carpet") {
+    driver.clearTransforms();
+    driver.setMcr(0,0,1, 1);
+    driver.addTransform(.333,   .333,   0,    0,     0,     0);
+    driver.addTransform(.333,   .333,   0,    0,     .333,  0);
+    driver.addTransform(.333,   .333,   0,    0,     .667,  0);
+    driver.addTransform(.333,   .333,   0,    0,     0,     .333);
+    driver.addTransform(.333,   .333,   0,    0,     .667,  .333);
+    driver.addTransform(.333,   .333,   0,    0,     0,     .667);
+    driver.addTransform(.333,   .333,   0,    0,     .333,  .667);
+    driver.addTransform(.333,   .333,   0,    0,     .667,  .667);
+  }
+
+  Scenario("Koch Curve") {
+    driver.clearTransforms();
+    driver.setMcr(0,0,1, 1);
+    driver.addTransform(.333,   .333,   0,    0,     0,     0);
+    driver.addTransform(.333,   .333,   60,   60,    .333,  0);
+    driver.addTransform(.333,   .333,  -60,  -60,    .5,    .289);
+    driver.addTransform(.333,   .333,   0,    0,     .667,  0);
+  }
+
+  Scenario("Queen Anne's Lace") {
+    driver.clearTransforms();
+    driver.setMcr(-1.4,-1.4,1.4,1.4);
+    driver.addTransform(.27,    .27,    0,    0,     1,     0);
+    driver.addTransform(.27,    .27,    0,    0,     .707,  .707);
+    driver.addTransform(.27,    .27,    0,    0,     0,     1);
+    driver.addTransform(.27,    .27,    0,    0,    -.707,  .707);
+    driver.addTransform(.27,    .27,    0,    0,    -1,     0);
+    driver.addTransform(.27,    .27,    0,    0,    -.707, -.707);
+    driver.addTransform(.27,    .27,    0,    0,     0,    -1);
+    driver.addTransform(.27,    .27,    0,    0,     .707, -.707);
+    driver.addTransform(.5,     .5,   22.5,  22.5,    0,     0);
+  }
+
+  Scenario("Barnsley's Fern") {
+    driver.clearTransforms();
+    driver.setMcr(-5,0,5, 10);
+    driver.addTransform(0.0, .16, 0, 0, 0, 0);
+    driver.addTransform(.85, .85, -2.5, -2.5, 0, 1.6);
+    driver.addTransform(.3, .34, 49, 49, 0, 1.6);
+    driver.addTransform(.3, .37, -50, -50, 0, .44);
+  }
+
+  Scenario("Tree") {
+    driver.clearTransforms();
+    driver.setMcr(-1.25,-.25,1.25,2.25);
+    driver.addTransform(.05,    .6,    0,     0,      0,     0);
+    driver.addTransform(.05,   -.5,    0,     0,      0,     1);
+    driver.addTransform(.6,     .5,    40,    40,     0,     .6);
+    driver.addTransform(.5,     .45,   20,    20,     0,     1.1);
+    driver.addTransform(.5,     .55,  -30,   -30,     0,     1);
+    driver.addTransform(.55,    .4,   -40,   -40,     0,     .7);
+  }
+
+  Scenario("Snowflake") {
+    driver.clearTransforms();
+    driver.setMcr(-1.1,-1.1,1.1,1.1);
+    driver.addTransform(.6,     .6,     0,     0,     0,     0);
+    driver.addTransform(.4,     .2,     0,     0,     .6,    0);
+    driver.addTransform(1,      1,     60,    60,     0,     0);
+  }
+
+  Scenario("One-Arm Spiral") {
+    driver.clearTransforms();
+    driver.setMcr(-.6,-.5,1.0,1.1);
+    driver.addTransform(.29,    .29,    0,     0,     .71,   .41);
+    driver.addTransform(.84,    .84,    20,    20,    0,     0);
+  }
+
+  Scenario("Two-Arm Spiral") {
+    driver.clearTransforms();
+    driver.setMcr(-1,-1,1.0,1);
+    driver.addTransform(.2,     .2,     0,     0,     .7,    0);
+    driver.addTransform(.2,     .2,     0,     0,     -.7,   0);
+    driver.addTransform(.85,    .85,    20,    20,     0,    0);
+  }
+
+  Scenario("Four-Arm Spiral 1") {
+    driver.clearTransforms();
+    driver.setMcr(-1,-1,1,1);
+    driver.addTransform(.2,     .2,     0,     0,     .7,    0);
+    driver.addTransform(.2,     .2,     0,     0,     -.7,   0);
+    driver.addTransform(.2,     .2,     0,     0,      0,    .7);
+    driver.addTransform(.2,     .2,     0,     0,      0,   -.7);
+    driver.addTransform(.85,    .85,    20,    20,     0,    0);
+  }
+
+  Scenario("Four-Arm Spiral 2") {
+    driver.clearTransforms();
+    driver.setMcr(-1,-1,1,1);
+    driver.addTransform(.1,   .1,   0,   0,  .75,   .75);
+    driver.addTransform(.1,   .1,   0,   0,  -.75,   .75);
+    driver.addTransform(.1,   .1,   0,   0,  -.75,   -.75);
+    driver.addTransform(.1,   .1,   0,   0,  .75,   -.75);
+    driver.addTransform(.95,  .96,  10,  10,   0,     0);
+  }
+
+  Scenario("Blank") {
+    driver.clearTransforms();
+    driver.setMcr(-1,-1,1,1);
+  }
+  Scenario("Restore Picture") {
+    driver.restorePicture();
+  }
+
+

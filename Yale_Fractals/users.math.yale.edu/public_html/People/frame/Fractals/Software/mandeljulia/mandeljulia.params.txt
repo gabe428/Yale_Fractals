@@ -1,0 +1,43 @@
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    mandeljulia.MandelDriver driver;
+
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("mandeljulia.MandelDriver"), "moduleToRun";
+    cwa.setReader ( "Math", "mandeljulia/readers/math.html" );
+    cwa.setReader ( "User Interface", "mandeljulia/readers/gui.html" );
+    cwa.setReader ( "Printing", "ifs/readers.random/print.html" );
+
+    // cwa.addWindowMenu("Window");
+    // immediate(cwa.setBackground(2)); // default is RosePeach, code order shown in windowmenu
+  }
+  Scenario("Quadratic (z^2 + c)") {
+    driver.setFunctions(0);
+  }
+  Scenario("Cubic (z^3 + c)") {
+    driver.setFunctions(1);
+  }
+  Scenario("Quartic (z^4 + c)") {
+    driver.setFunctions(2);
+  }
+  Scenario("Quintic (z^5 + c)") {
+    driver.setFunctions(3);
+  }
+  Scenario("z^2/2 + z^3/3 + c, ip=(0,0)") {
+    driver.setFunctions(4);
+  }
+  Scenario("z^2/2 + z^3/3 + c, ip=(-1,0)") {
+    driver.setFunctions(5);
+  }
+  Scenario("z^2/2 + z^3/3 + c, ip=(0,0),(-1,0)") {
+    driver.setFunctions(6);
+  }
+  Scenario("Cubic, 4d parameter space") {
+    driver.setFunctions(7);
+  }
+  Scenario("Tricorn") {
+    driver.setFunctions(8);
+  }
+

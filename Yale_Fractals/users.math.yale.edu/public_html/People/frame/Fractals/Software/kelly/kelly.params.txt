@@ -1,0 +1,111 @@
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    kelly.Kelly driver;
+    fracdyn.KellyPlot kplot;
+
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("kelly.Kelly"), "moduleToRun";
+    cwa.setReader ( "Math Background", "kelly/readers/KellyPlot/KellyPlot.html" );
+    cwa.setReader ( "User Interface", "kelly/readers/interface.html" );
+    cwa.setReader ( "Printing", "MasterPrint.html" );
+
+    // cwa.addWindowMenu("Window");
+    // immediate(cwa.setBackground(2)); // default is RosePeach, code order shown in windowmenu
+
+    // borrow drivenifs' data generators for scenarios
+    drivenifs.DataLogMap logmap = new drivenifs.DataLogMap();
+    drivenifs.DataTentMap tentmap = new drivenifs.DataTentMap();
+    drivenifs.DataFinanceCartoon finance = new drivenifs.DataFinanceCartoon();
+    drivenifs.DataTester schiz = new drivenifs.DataTester();
+    drivenifs.DataURL url = new drivenifs.DataURL();
+    url.setApplet(cwa);
+
+    driver.setParamsLoading(true);
+     // the Kelly plot bin menu
+     ParamList ("Bins") {
+       // as they are, these are a nice way to get labels on a menu....
+       // but here we create them and use cleanBinParams to turn them into
+       // buttons (execParams)
+       ParamList {
+         ParamList ("Set N Bins, N Drop"){
+            driver.setNBins(3), "number of bins (colors)";
+            driver.setNDrop(0), "drop first N iterates";
+            driver.regen();
+         }
+       }
+       ParamList ("Equal Size", "driver.setESBins") {
+       }
+       ParamList ("Equal Weight", "driver.setEWBins") {
+       }
+       ParamList {
+          ParamList ("Mean Centered") {
+            kplot.setBinOption(3);
+            kplot.setSigmaUserScale(0.5), "(value >= 0) scale stddev * ";
+            driver.regen();
+          }
+       }
+       ParamList {
+          ParamList ("Median Centered") {
+            kplot.setBinOption(5);
+            kplot.setMedianBinScale(0.5), "(0 <= value <= 1) scale range * ";
+            driver.regen();
+          }
+       }
+       ParamList  {
+          ParamList ("Zero Centered") {
+            kplot.setBinOption(6);
+            kplot.setZeroBinScale(0.5), "(0 <= value <= 1) scale range * ";
+            driver.regen();
+          }
+       }
+       ParamList ("My Bins", "driver.popupUserBins") {
+       }
+     }
+     // driver places the bin params onto a button - not the param file
+
+     // Process menu
+     ParamList ("Process") {
+      driver.setProcessDiff(false), "use differences";
+      ParamList {
+        driver.setProcessDelay(1), "difference delay";
+        driver.setProcessOffset(1), "offset";
+      }
+      driver.regen();
+     }
+     driver.makeButtonOnce("Process", 1);
+     driver.setParamsLoading(false);
+  }
+
+
+  // There is no corresponding Input Data menu for this, because security only allows
+  // entering locations with the same codebase, anyway.... So just take what files are
+  // available on the release, and advertise them on Scenarios. Because they aren't on
+  // the Input Data menu, don't add any extra settings to them - they should only switch
+  // the data set, not the analysis.
+
+  Scenario ("DM / $ Monthly 1970-2001") {
+    driver.setParamsLoading(true);
+    url.setLabel("DM / $");
+    url.setLabelDetail("monthly 1970-2001");
+    url.setURL("drivenifs/data/dollar_deutschmark.txt");
+    driver.setParamsLoading(false);
+    driver.setDataGenerator(url);
+  }
+
+  Scenario ("Yen / $ Monthly 1970-2001") {
+    driver.setParamsLoading(true);
+    url.setLabel("Yen / $");
+    url.setLabelDetail("monthly 1970-2001");
+    url.setURL("drivenifs/data/dollar_yen.txt");
+    driver.setParamsLoading(false);
+    driver.setDataGenerator(url);
+  }
+
+  Scenario ("My Data") {
+    driver.setParamsLoading(true);
+    driver.popupMyData();
+    driver.setParamsLoading(false);
+  }
+

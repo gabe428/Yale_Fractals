@@ -1,0 +1,201 @@
+//
+// Driven IFS param file, CourseWare 2, vfb, 020701
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    drivenifs.DrivenIFS ifs;
+    drivenifs.DataMinder dataMinder;
+
+    cwa.setBackground( 220,220,220 );
+    cwa.setButtonImages("images/aquabutton54x20.gif", "images/darkaqua54x20.gif");
+//    cwa.setButtonImages("images/copper54x20.gif", "images/darkcopper54x20.gif");
+    cwa.setBackgroundImage("images/greywhite13.gif");
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("drivenifs.DrivenIFS"), "moduleToRun";
+    cwa.setReader ( "Discussion", "drivenifs/readers/discussion.html" );
+    cwa.setReader ( "Details", "drivenifs/readers/underhood.html" );
+
+    drivenifs.DataLogMap logmap = new drivenifs.DataLogMap();
+    drivenifs.DataTentMap tentmap = new drivenifs.DataTentMap();
+    drivenifs.DataFinanceCartoon finance = new drivenifs.DataFinanceCartoon();
+    drivenifs.DataTester schiz = new drivenifs.DataTester();
+    drivenifs.DataURL url = new drivenifs.DataURL();
+    url.setApplet(cwa);
+
+     // WARNING: The values here initialize the Input Data button menus.
+     // To change the default scenarios, you must ALSO change the Scenario
+     // definitions below, for data handlers that appear as Scenarios. The
+     // values put in the Scenario declaration reassert all back to their
+     // defaults each time a Scenario is chosen. The values here continue
+     // from last-entered until a Scenario re-enters them.
+
+     ifs.setParamsLoading(true);
+     ParamList ("Custom Data") {
+       ParamList {
+          ParamList ("Logistic Map"){
+            logmap.setN(200), "N points";
+            logmap.setRate(3.59), "growth rate (0 <= r <= 4)";
+            logmap.setX0(0.1), "first point (0 < x1 < 1)";
+            ifs.setDataGenerator(logmap);
+          }
+       }
+       ParamList {
+          ParamList ("Tent Map"){
+            tentmap.setN(200), "N points";
+            tentmap.setRate(1.42), "growth rate (0 <= r <= 2)";
+            tentmap.setX0(0.1), "first point (0 < x1 < 1)";
+            ifs.setDataGenerator(tentmap);
+          }
+        }
+       ParamList {
+          ParamList ("Finance Cartoon"){
+            finance.setN(200), "N points";
+            finance.setIterations(4), "iterations";
+            ParamList {
+              finance.setTurnX0(0.444), "first turn x (0 <= value <= 1)";
+              finance.setTurnY0(0.667), " y";
+            }
+            ParamList {
+              finance.setTurnX1(0.555), "second turn x (second x > first)";
+              finance.setTurnY1(0.333), " y";
+            }
+            finance.setRandomSeed(314159), "random seed";
+            ifs.setDataGenerator(finance);
+          }
+        }
+        ParamList {
+          ParamList("SchizoSinusoidal") {
+            schiz.setN(200), "N points";
+            schiz.setModulo(21), "break period (integer)";
+            schiz.setPeriod(26.0), "sine period";
+            schiz.setMult(0.1), "scaling factor";
+            ifs.setDataGenerator(schiz);
+          }
+        }
+     }
+     ifs.addInputToList("Custom Data");
+
+     // Now for the Process menu
+     ParamList ("Process") {
+      ifs.setProcessDiff(false), "use differences";
+      ParamList {
+        ifs.setProcessDelay(1), "difference delay";
+        ifs.setProcessOffset(1), "offset";
+      }
+      ifs.rerun();
+     }
+
+     // And the Bin menu
+     ParamList ("Bins") {
+       // as they are, these are a nice way to get labels on a menu....
+       // but here we create them and use cleanBinParams to turn them into
+       // buttons (execParams)
+       ParamList ("Equal Size", "ifs.setESBins"){
+       }
+       ParamList ("Equal Weight", "ifs.setEWBins"){
+       }
+       ParamList {
+          ParamList ("Mean Centered"){
+            ifs.setBinOption(2);
+            ifs.setSigmaUserScale(1.0), "(0 <= value) scale stddev * ";
+            ifs.rerun();
+          }
+       }
+       ParamList {
+          ParamList ("Median Centered"){
+            ifs.setBinOption(3);
+            ifs.setMedianBinScale(0.5), "(0 <= value <= 1) scale range * ";
+            ifs.rerun();
+          }
+       }
+       ParamList {
+          ParamList ("Zero Centered"){
+            ifs.setBinOption(4);
+            ifs.setZeroBinScale(0.5), "(0 <= value <= 1) scale range * ";
+            ifs.rerun();
+          }
+       }
+       ParamList {
+          ParamList ("My Bins"){
+            ifs.setBinOption(5);
+            ifs.setUserBin2(1.0), "bin 3 (b3 >= b2 >= b1)";
+            ifs.setUserBin1(0.0), "bin 2";
+            ifs.setUserBin0(-1.0), "bin 1";
+            ifs.rerun();
+          }
+       }
+     }
+
+     ifs.makeButtonOnce("Custom Data", 3);
+     ifs.makeButtonOnce("Process", 1);
+
+     // This replaces no-content dialogs on the no-parameter bin options
+     ifs.cleanBinParams("Bins");
+     ifs.makeButtonOnce("Bins", 1);
+
+     ifs.setParamsLoading(false);
+  }
+
+  Scenario ("Logistic Map") {
+    ifs.setParamsLoading(true);
+    logmap.setN(200);
+    logmap.setRate(3.59);
+    logmap.setX0(0.1);
+    ifs.setParamsLoading(false);
+    ifs.setDataGenerator(logmap);
+  }
+  Scenario ("Tent Map") {
+    ifs.setParamsLoading(true);
+    tentmap.setN(200);
+    tentmap.setRate(1.42);
+    tentmap.setX0(0.1);
+    ifs.setParamsLoading(false);
+    ifs.setDataGenerator(tentmap);
+  }
+  Scenario ("Finance Cartoon") {
+    ifs.setParamsLoading(true);
+    finance.setN(200);
+    finance.setIterations(4);
+    finance.setTurnX0(0.444);
+    finance.setTurnY0(0.667);
+    finance.setTurnX1(0.555);
+    finance.setTurnY1(0.333);
+    finance.setRandomSeed(314159), "random seed";
+    ifs.setParamsLoading(false);
+    ifs.setDataGenerator(finance);
+  }
+
+  Scenario ("SchizoSinusoidal") {
+    ifs.setParamsLoading(true);
+    schiz.setN(200);
+    schiz.setModulo(21);
+    schiz.setPeriod(26.0);
+    schiz.setMult(0.1);
+    ifs.setParamsLoading(false);
+    ifs.setDataGenerator(schiz);
+  }
+
+  // There is no corresponding Input Data menu for this, because security only allows
+  // entering locations with the same codebase, anyway.... So just take what files are
+  // available on the release, and advertise them on Scenarios. Because they aren't on
+  // the Input Data menu, don't add any extra settings to them - they should only switch
+  // the data set, not the analysis.
+
+  Scenario ("DM / $ Monthly 1970-2001") {
+    ifs.setParamsLoading(true);
+    url.setLabel("DM / $");
+    url.setLabelDetail("monthly 1970-2001");
+    url.setURL("drivenifs/data/dollar_deutschmark.txt");
+    ifs.setParamsLoading(false);
+    ifs.setDataGenerator(url);
+  }
+
+  Scenario ("Yen / $ Monthly 1970-2001") {
+    ifs.setParamsLoading(true);
+    url.setLabel("Yen / $");
+    url.setLabelDetail("monthly 1970-2001");
+    url.setURL("drivenifs/data/dollar_yen.txt");
+    ifs.setParamsLoading(false);
+    ifs.setDataGenerator(url);
+  }

@@ -1,0 +1,76 @@
+//
+// Driven IFS param file, CourseWare 2, vfb, 020701
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    boxdim.BoxDimension boxdim;
+
+    cwa.setBackground( 220,220,220 );
+    cwa.setButtonImages("images/aquabutton54x20.gif", "images/darkaqua54x20.gif");
+//    cwa.setButtonImages("images/copper54x20.gif", "images/darkcopper54x20.gif");
+    cwa.setBackgroundImage("images/greywhite13.gif");
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("boxdim.BoxDimension"), "moduleToRun";
+    cwa.setReader ( "Discussion", "boxdim/readers/discussion.html" );
+    cwa.setReader ( "Questions", "boxdim/readers/questions.html" );
+    cwa.setReader ( "Details", "boxdim/readers/underhood.html" );
+
+    cwa.setScenarioLabel("Choose Map");
+
+  }
+
+  // to get better pictures:
+  // 1. if you only supply 1 picture, it is scaled up as smoothly as
+  //    possible...jpg's will look better (best if really a photo....)
+  // 2. it's better to supply 3 pictures, one at low, medium, high resolution
+  //    in which case you need to scale them offline to be the exact same
+  //    limits, at 1x, 2x, and 4x pixel sizes. Don't let these files get too
+  //    large, or the user's performance will suffer, and on low-memory
+  //    machines, they may not be able to even view the highest-res pictures.
+  //    The advantage of doing it offline is that you can work harder at
+  //    the size/quality tradeoffs. If you don't know how to do
+  //    that, just supply the one picture.
+  // 3. If you have only 2 pictures, send a zero for the missing picture.
+
+  Scenario ("Connecticut") {
+    boxdim.setMap("Connecticut", "boxdim/pix/ctsmall.jpg", "boxdim/pix/ctmedium.jpg", "boxdim/pix/ctlarge.jpg");
+//    boxdim.setMap("Connecticut", "boxdim/pix/ctsmall.jpg"); // if wanted to just scale up the lowest res version
+  }
+  Scenario ("Norway") {
+    boxdim.setMap("Norway", "boxdim/pix/norwaysmall.jpg", "boxdim/pix/norwaymedium.jpg", "boxdim/pix/norwaylarge.jpg");
+  }
+  Scenario ("Chesapeake") {
+    boxdim.setMap("Chesapeake", "boxdim/pix/chesasmall.jpg", "boxdim/pix/chesamedium.jpg", "boxdim/pix/chesalarge.jpg");
+  }
+ Scenario ("Line") {
+    boxdim.setMap("Line", "boxdim/pix/linesmall.gif", "boxdim/pix/linemedium.gif", "boxdim/pix/linelarge.gif");
+  }
+ Scenario ("Bent Line") {
+    boxdim.setMap("Bent Line", "boxdim/pix/bentlinesmall.gif", "boxdim/pix/bentlinemedium.gif", "boxdim/pix/bentlinelarge.gif");
+  }
+
+  Scenario ("Semicircle") {
+    boxdim.setMap("Semicircle", "boxdim/pix/semicirclesmall.gif", "boxdim/pix/semicirclemedium.gif", "boxdim/pix/semicirclelarge.gif");
+  }
+  Scenario ("Koch") {
+    boxdim.setMap("Koch", "boxdim/pix/kochsmall.gif", "boxdim/pix/kochmedium.gif", "boxdim/pix/kochlarge.gif");
+  }
+ Scenario ("Koch Random") {
+    boxdim.setMap("Koch Random", "boxdim/pix/randomkochsmall.gif", "boxdim/pix/randomkochmedium.gif", "boxdim/pix/randomkochlarge.gif");
+  }
+  Scenario ("Koch2") {
+    boxdim.setMap("Koch2", "boxdim/pix/koch2small.gif", "boxdim/pix/koch2medium.gif", "boxdim/pix/koch2large.gif");
+  }
+  Scenario ("Hilbert") {
+    boxdim.setMap("Hilbert", "boxdim/pix/hilbertsmall.gif", "boxdim/pix/hilbertmedium.gif", "boxdim/pix/hilbertlarge.gif");
+  }
+  Scenario ("Hilbert Random") {
+    boxdim.setMap("Hilber Randomt", "boxdim/pix/randomhilbertsmall.gif", "boxdim/pix/randomhilbertmedium.gif", "boxdim/pix/randomhilbertlarge.gif");
+  }
+  Scenario ("Tree") {
+    boxdim.setMap("Tree", "boxdim/pix/RotTree.gif","boxdim/pix/RotTree.gif","boxdim/pix/RotTree.gif");
+  }
+
+
+

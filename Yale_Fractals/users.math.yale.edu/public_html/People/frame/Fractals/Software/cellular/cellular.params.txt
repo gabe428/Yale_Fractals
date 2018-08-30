@@ -1,0 +1,140 @@
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    cellular.CADriver cadriver;
+
+    cwa.setModuleToRun("cellular.CADriver"), "moduleToRun";
+    cwa.setReader ( "Discussion", "cellular/readers/discussion.html" );
+    cwa.setReader ( "Details", "cellular/readers/underhood.html" );
+    cwa.setReader ( "Printing", "cellular/readers/print.html" );
+
+    // the logic here is a bit backwards - DON'T do any of it if paramsloading
+    // so ONLY do it when hit an OK button - so this code can never set the
+    // starting values, which are hardcoded in the Java.
+    cadriver.setParamsLoadingFlag(true);
+    ParamList ("Options") {
+      cadriver.setGenerations(25), "Generations";
+      cadriver.setSideCells(51), "Cells per side";
+      cadriver.setRandomChance(0.10), "Random cells fraction";
+      cadriver.setSecondsPerStep(0.15), "Speed (seconds per step)";
+      cadriver.setCellPixels(8), "Pixels square per cell";
+      cadriver.relayout();
+    }
+    cadriver.setParamsLoadingFlag(false);
+    cadriver.makeButtonOnce("Options", 1);
+    cwa.addWindowMenu("Window");
+    // immediate(cwa.setBackground(2)); // default is RosePeach, code order shown in windowmenu
+
+  }
+
+  Scenario ("1D Configuration (N=3)") {
+    cadriver.setRuleSet(3, false, false);
+    cadriver.clearRuleSelect();
+    cadriver.setCells(26,26);
+    // some rules
+    cadriver.selectRule("010");
+    cadriver.selectRule("001");
+    cadriver.selectRule("110");
+    cadriver.selectRule("101");
+    cadriver.selectRule("011");
+  }
+
+  Scenario ("1D Outer Totalistic (N=3)") {
+    cadriver.setRuleSet(3, false, true);
+    cadriver.clearRuleSelect();
+    cadriver.setCells(26, 26);
+
+    // some rules
+    cadriver.selectRule("101");
+    cadriver.selectRule("111");
+    cadriver.selectRule("000");
+  }
+
+  Scenario ("1D Configuration (N=5)") {
+    cadriver.setRuleSet(5, false, false);
+    cadriver.clearRuleSelect();
+    // some rules
+    cadriver.selectRule("00000");
+    cadriver.selectRule("00100");
+    cadriver.selectRule("11000");
+    cadriver.selectRule("01001");
+    cadriver.selectRule("00011");
+    cadriver.selectRule("11100");
+    cadriver.selectRule("01110");
+    cadriver.selectRule("01101");
+    cadriver.selectRule("01011");
+    cadriver.selectRule("00111");
+    cadriver.selectRule("11110");
+    cadriver.selectRule("11101");
+    cadriver.selectRule("01111");
+    cadriver.selectRule("11111");
+    cadriver.setRandomChance(0.50);
+    cadriver.setCellsRandom();
+  }
+
+  Scenario ("1D Outer Totalistic (N=5)") {
+    cadriver.setRuleSet(5, false, true);
+    cadriver.clearRuleSelect();
+    cadriver.setCells(26,28);
+    // some rules
+    cadriver.selectRule("10100");
+    cadriver.selectRule("11000");
+    cadriver.selectRule("11100");
+    cadriver.selectRule("11011");
+  }
+
+  Scenario ("2D Von Neumann Configuration (N=5)") {
+    cadriver.setRuleSet(5, true, false);
+    cadriver.clearRuleSelect();
+    cadriver.setCells(26, 26, 26, 26);
+    cadriver.selectRule("10000");
+    cadriver.selectRule("00001");
+    cadriver.selectRule("01000");
+    cadriver.selectRule("00010");
+    cadriver.selectRule("00100");
+    cadriver.selectRule("11111");
+  }
+
+  Scenario ("2D Von Neumann Outer Totalistic (N=5)") {
+    cadriver.setRuleSet(5, true, true);
+    cadriver.clearRuleSelect();
+    // fromrow, col, torow, col - a line, not rectangle
+    cadriver.setCells(26, 25, 26, 27);
+    // nonsense test rules
+    cadriver.selectRule("10000");
+    cadriver.selectRule("10100");
+    cadriver.selectRule("11100");
+    cadriver.selectRule("11011");
+  }
+
+  Scenario ("2D Moore Configuration (N=9)") {
+    cadriver.setRuleSet(9, true, false);
+    cadriver.clearRuleSelect();
+    // fromrow, col, torow, col - a line, not rectangle
+    cadriver.setCells(23, 25, 30, 25);
+    // some rules
+    cadriver.selectRule("000000001");
+    cadriver.selectRule("001000000");
+    cadriver.selectRule("100000000");
+    cadriver.selectRule("000000100");
+    cadriver.selectRule("000010000");
+  }
+
+
+  Scenario ("2D Moore Outer Totalistic (N=9)") {
+    cadriver.setRuleSet(9, true, true);
+    cadriver.clearRuleSelect();
+    cadriver.setCells(26, 25, 27, 25);
+    cadriver.setCells(25, 26, 26, 26);
+    cadriver.setCells(26, 27, 26, 27);
+    // Life rules, I believe
+    cadriver.selectRule("110010000");
+    cadriver.selectRule("111010000");
+    cadriver.selectRule("111000000");
+  }
+
+
+
+
+

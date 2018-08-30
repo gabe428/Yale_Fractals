@@ -1,0 +1,111 @@
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    fracstats.FracStats driver;
+    fracstats.NormalPlot nplot;
+
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("fracstats.FracStats"), "moduleToRun";
+    cwa.setReader ( "User Interface", "fracstats/readers/interface.html" );
+    cwa.setReader ( "Printing", "ifs/readers.random/print.html" );
+
+    // cwa.addWindowMenu("Window");
+    // immediate(cwa.setBackground(2)); // default is RosePeach, code order shown in windowmenu
+
+    // borrow drivenifs' data generators for scenarios
+    drivenifs.DataURL url = new drivenifs.DataURL();
+    drivenifs.DataTester schiz = new drivenifs.DataTester();
+    url.setApplet(cwa);
+
+    fracstats.PlaneDataURL purl = new fracstats.PlaneDataURL();
+    purl.setApplet(cwa);
+
+    driver.setParamsLoading(true);
+     // the Kelly plot bin menu
+     ParamList ("Bins") {
+       // as they are, these are a nice way to get labels on a menu....
+       // but here we create them and use cleanBinParams to turn them into
+       // buttons (execParams)
+       ParamList {
+         ParamList ("Set Num Bins, M Drop"){
+            driver.setNBins(9), "number of bins (colors)";
+            driver.setNDrop(0), "drop first M points";
+            driver.regen();
+         }
+       }
+       ParamList ("Mean Centered, Equal Size", "driver.setMCBins") {
+       }
+       ParamList ("Equal Spaced, Equal Size", "driver.setESBins") {
+       }
+     }
+     // driver places the bin params onto a button - not the param file
+
+     // Process menu
+     driver.setParamsLoading(false);
+     driver.setMCBins();
+     ParamList ("Process") {
+      driver.setProcessDiff(false), "use differences";
+      ParamList {
+        driver.setProcessDelay(1), "difference delay";
+        driver.setProcessOffset(1), "offset";
+      }
+      driver.regen();
+     }
+     driver.makeButtonOnce("Process", 1);
+  }
+
+
+  // There is no corresponding Input Data menu for this, because security only allows
+  // entering locations with the same codebase, anyway.... So just take what files are
+  // available on the release, and advertise them on Scenarios. Because they aren't on
+  // the Input Data menu, don't add any extra settings to them - they should only switch
+  // the data set, not the analysis.
+
+  Scenario ("DM / $ Monthly 1970-2001") {
+    driver.setParamsLoading(true);
+    url.setLabel("DM / $");
+    url.setLabelDetail("monthly 1970-2001");
+    url.setURL("fracstats/data/dollar_deutschmark.txt");
+    driver.setParamsLoading(false);
+    driver.setDataGenerator(url);
+  }
+
+  Scenario ("Yen / $ Monthly 1970-2001") {
+    driver.setParamsLoading(true);
+    url.setLabel("Yen / $");
+    url.setLabelDetail("monthly 1970-2001");
+    url.setURL("fracstats/data/dollar_yen.txt");
+    driver.setParamsLoading(false);
+    driver.setDataGenerator(url);
+  }
+
+  Scenario ("Normal") {
+    driver.setParamsLoading(true);
+    url.setLabel("Normal Data");
+    url.setLabelDetail(" ");
+    url.setURL("fracstats/data/normal.txt");
+    driver.setParamsLoading(false);
+    driver.setDataGenerator(url);
+  }
+
+  Scenario ("Schizosinusoidal") {
+    driver.setParamsLoading(true);
+    url.setLabel("Schizosinusoidal");
+    url.setLabelDetail("Schizosinusoidal");
+    driver.setParamsLoading(false);
+    driver.setDataGenerator(schiz);
+  }
+
+  Scenario ("My Time Series (y1,y2,...yN)") {
+    driver.setParamsLoading(true);
+    driver.popupMyData();
+    driver.setParamsLoading(false);
+  }
+
+  Scenario ("My Plane Data (x1,y1, x2,y2, ...)") {
+    driver.setParamsLoading(true);
+    driver.popupPlaneData();
+    driver.setParamsLoading(false);
+  }
+

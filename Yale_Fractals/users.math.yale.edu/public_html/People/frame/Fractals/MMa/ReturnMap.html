@@ -1,0 +1,6 @@
+<HTML>
+<!-- Mirrored from users.math.yale.edu/public_html/People/frame/Fractals/Mma/ReturnMap.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Aug 2018 08:24:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<HEAD><TITLE>Fractal Geometry</TITLE></HEAD><BODY BGCOLOR="WHITE"><H2 ALIGN="CENTER">Return Map</H2><P><TABLE><TR><TD>(* Data Driven Return Map *)</TD></TR><TR><TD>Off[General::spell];</TD></TR><TR><TD>Off[General::spell1];</TD></TR><TR><TD>dlst = {};</TD></TR><TR><TD>(* paste the data between the {} in dlst = {}, comma separated numbers *)</TD></TR><TR><TD>ptlst = {PointSize[0.01]};</TD></TR><TR><TD>Do[ptlst = Flatten[{ptlst,Point[{dlst[[i]],dlst[[i+1]]}]}],{i,1,Length[dlst]-1}];</TD></TR><TR><TD>xmin = Min[dlst];</TD></TR> <TR><TD>xmax = Max[dlst];</TD></TR><TR><TD>Show[Graphics[{Line[{{xmin,xmin},{xmax,xmin},{xmax,xmax},{xmin,xmax},{xmin,xmin}}],Line[{{xmin,xmin},{xmax,xmax}}],ptlst}],PlotRange->{{xmin,xmax},{xmin,xmax}},AspectRatio->1]</TABLE></P></BODY>
+<!-- Mirrored from users.math.yale.edu/public_html/People/frame/Fractals/Mma/ReturnMap.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Aug 2018 08:24:23 GMT -->
+</HTML>

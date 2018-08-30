@@ -1,0 +1,18 @@
+//
+// FracMusic param file, orig vfb 20031001
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    fracmusic.FracMusic module;
+ 
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("fracmusic.FracMusic"), "moduleToRun";
+    cwa.setReader ( "Discussion", "fracmusic/readers/discussion.html" );
+    cwa.setReader ( "Keyboard", "fracmusic/readers/keybind.html" );
+
+    cwa.addWindowMenu("Background");
+    // immediate(cwa.setBackground(6)); // default is RosePeach, code order shown in windowmenu
+
+    // if have reflection depth, need menu for that...also any coloring options
+  }

@@ -1,0 +1,52 @@
+//
+// Inversion param file, vfb 20030603
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    inversion.Inversion module;
+    com.gingerbooth.geditor.Geditor geditor;
+
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("inversion.Inversion"), "moduleToRun";
+    cwa.setReader ( "Discussion", "inversion/readers/discussion.html" );
+    cwa.setReader ( "Questions", "inversion/readers/questions.html" );
+    cwa.setReader ( "Details", "inversion/readers/details.html" );
+    cwa.setReader ( "Printing", "inversion/readers/print.html" );
+
+    // cwa.addWindowMenu("Window");
+    // immediate(cwa.setBackground(2)); // default is RosePeach, code order shown in windowmenu
+
+    // if have reflection depth, need menu for that...also any coloring options
+  }
+  Scenario ("One Circle") {
+    module.addCircle(0, false, 0.0, 0.0, 1.0); 	// layer 0 is for reflectors, filled is false
+    geditor.setViewWin(false, -2.0,-2.0, 2.0,2.0); 	// undoable is false
+  }
+
+  Scenario ("Concentric Circles") {
+    module.addCircle(0, false, 0, 0, 1.0); 	// layer 0 is for reflectors, filled is false
+    module.addCircle(0, false, 0, 0, 2.25); 	// layer 0 is for reflectors, filled is false
+    geditor.setViewWin(false, -3,-3,3,3); 	// undoable is false
+  }
+
+  Scenario ("Circlimset 'Limit Set'") {
+    module.addCircle(0, false, 0,  0, 4);
+    module.addCircle(0, false, -9.76,  -9.76, 9.76);
+    module.addCircle(0, false,  9.76,  -9.76, 9.76);
+    module.addCircle(0, false,  9.76,   9.76, 9.76);
+    module.addCircle(0, false, -9.76,   9.76, 9.76);
+    geditor.setViewWin(false, -25, -25, 25, 25); 	// undoable is false
+  }
+
+  Scenario ("Circlimset '8 Circle Pattern'") {
+    module.addCircle(0, false, -5,  0, 5);
+    module.addCircle(0, false,  0,  5, 5);
+    module.addCircle(0, false,  5,  0, 5);
+    module.addCircle(0, false,  0, -5, 5);
+    module.addCircle(0, false, -10, 10, 10);
+    module.addCircle(0, false, -10,-10, 10);
+    module.addCircle(0, false,  10,-10, 10);
+    module.addCircle(0, false,  10, 10, 10);
+    geditor.setViewWin(false, -25, -25, 25, 25); 	// undoable is false
+  }

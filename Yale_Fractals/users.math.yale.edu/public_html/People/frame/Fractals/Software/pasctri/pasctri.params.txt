@@ -1,0 +1,57 @@
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    pasctri.PascDriver driver;
+
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("pasctri.PascDriver"), "moduleToRun";
+    cwa.setReader ( "Discussion", "pasctri/readers/discussion.html" );
+    cwa.setReader ( "Details", "pasctri/readers/details.html" );
+    cwa.setReader ( "Printing", "pasctri/readers/print.html" );
+
+    // cwa.addWindowMenu("Window");
+    // immediate(cwa.setBackground(2)); // default is RosePeach, code order shown in windowmenu
+
+  }
+
+
+  Scenario("Binomial") {
+    driver.setMode(0);
+    driver.restart();
+  }
+  Scenario("Group 1") {
+    driver.setMode(1);
+    driver.setSubMode(0);
+    driver.restart();
+  }
+  Scenario("Group 2") {
+    driver.setMode(1);
+    driver.setSubMode(1);
+    driver.restart();
+  }
+  Scenario("Group 3") {
+    driver.setMode(1);
+    driver.setSubMode(2);
+    driver.restart();
+  }
+  Scenario("Group 4") {
+    driver.setMode(1);
+    driver.setSubMode(3);
+    driver.restart();
+  }
+  Scenario("Polynomial 1") {
+    driver.setMode(2);
+    driver.setSubMode(0);
+    driver.restart();
+  }
+  Scenario("Polynomial 2") {
+    driver.setMode(2);
+    driver.setSubMode(1);
+    driver.restart();
+  }
+  Scenario("Polynomial 3") {
+    driver.setMode(2);
+    driver.setSubMode(2);
+    driver.restart();
+  }

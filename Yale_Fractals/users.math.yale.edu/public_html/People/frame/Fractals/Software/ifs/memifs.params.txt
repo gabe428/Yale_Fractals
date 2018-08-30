@@ -1,0 +1,31 @@
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    ifs.IFSMemory driver;
+
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("ifs.IFSMemory"), "moduleToRun";
+    cwa.setReader ( "Discussion", "ifs/readers.mem/discussion.html" );
+    cwa.setReader ( "Questions", "ifs/readers.mem/questions.html" );
+    cwa.setReader ( "Details", "ifs/readers.mem/details.html" );
+    cwa.setReader ( "Printing", "ifs/readers.random/print.html" );
+
+    // these initial values are ignored intentionally by the paramsLoadingFlag mechanism
+    driver.setParamsLoadingFlag(true);
+    ParamList ("Options") {
+      driver.setNGenerations(5), "Generations to auto-run";
+      driver.setAnimationTime(.55), "Pause length (seconds)";
+      driver.setSanityStop(10000), "Sanity stop if #squares > ";
+      driver.setUseColors(false), "Paint output";
+    }
+    driver.makeMenu("Options", 1);
+    driver.setParamsLoadingFlag(false);
+
+
+    // cwa.addWindowMenu("Window");
+    // immediate(cwa.setBackground(2)); // default is RosePeach, code order shown in windowmenu
+
+  }
+
+ 

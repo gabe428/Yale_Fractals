@@ -1,0 +1,6 @@
+<HTML>
+<!-- Mirrored from users.math.yale.edu/public_html/People/frame/Fractals/Mma/MMusic.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Aug 2018 08:24:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<HEAD><TITLE>Fractal Geometry</TITLE></HEAD><BODY BGCOLOR="WHITE"><H2 ALIGN="CENTER">Points in the Mandelbrot set</H2><P><TABLE><TR><TD>Off[General::spell];</TD></TR><TR><TD>Off[General::spell1];</TD></TR><TR><TD>c = ; (* paste the c-value here.  For example, c = -.4 + .5*I *)</TD></TR><TR><TD>iters = ; (* number of iterations - start small, say 5, until you're sure the c-value you picked belngs to the Mandelbrot set. *)<TR><TD>z = 0;</TD></TR><TR><TD>f[z_] := z^2 + c</TD></TR><TR><TD>pointlist = {};</TD></TR><TR><TD>Do[{z = f[z], Print[z],    AppendTo[pointlist, Point[{Re[z], Im[z]}]]}, {i, 1, iters}]</TD></TR>    <TR><TD>Show[Graphics[{PointSize[    0.05], pointlist}], AspectRatio -> Automatic, Axes -> True]</TD></TR>    <TR><TD>(* Be careful.  The plotted axes need not meet at the origin *)</TD></TR></TABLE></P></BODY>
+<!-- Mirrored from users.math.yale.edu/public_html/People/frame/Fractals/Mma/MMusic.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Aug 2018 08:24:23 GMT -->
+</HTML>

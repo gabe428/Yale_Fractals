@@ -1,0 +1,97 @@
+// ParamVerbose
+
+  Globals {
+    courseware.jfcdep.CourseWareApplet cwa;
+    oscillators.Oscillators driver;
+
+    cwa.setCommentRows(0);
+    cwa.setModuleToRun("oscillators.Oscillators"), "moduleToRun";
+    cwa.setReader ( "User Interface", "oscillators/readers/interface.html" );
+    cwa.setReader ( "Questions", "oscillators/readers/questions.html" );
+    cwa.setReader ( "Printing", "oscillators/readers/print.html" );
+
+    // cwa.addWindowMenu("Window");
+    // immediate(cwa.setBackground(2)); // default is RosePeach, code order shown in windowmenu
+
+  }
+  ParamList("Same") {
+    driver.setParamsLoadingFlag(true);
+    driver.setNumOscillators(52);
+    driver.setGenerations(75);
+    driver.setNDrop(0);
+    driver.setCellPixels(8);
+    driver.setCoupling(1, 1, 0.1);
+    driver.setNeighC(0.2);
+    driver.setSettingS(true, 0);
+    driver.setVal1(3.1);
+    driver.setVal2(3.83);
+    driver.setPeriod(13);
+    driver.setSettingS(false, 0);
+    driver.setVal1(0.3);
+    driver.setVal2(0.7);
+    driver.setPeriod(13);
+  }
+  ParamList("End") {
+    driver.setParamsLoadingFlag(false);
+    driver.reInit();
+    driver.runToEnd();
+  }
+  Scenario("Periodic S") {
+    insertList("Same");
+    driver.setCoupling(1, 2, 0.1);
+    driver.setNeighC(0.6);
+    driver.setSettingS(true, 4);
+    driver.setVal1(2.7);
+    driver.setSettingS(false, 4);
+    driver.setVal1(0.1);
+    driver.setVal2(0.9);
+    insertList("End");
+  }
+  Scenario("One Special S") {
+    insertList("Same");
+    driver.setSettingS(true, 1);
+    driver.setSettingS(false, 4);
+    insertList("End");
+  }
+  Scenario("Init Value Ramp") {
+    insertList("Same");
+    driver.setSettingS(false, 3);
+    driver.setVal1(0);
+    driver.setVal2(1.0);
+    driver.setCoupling(1, 1, 0.1);
+    driver.setNeighC(0.9);
+    driver.setCellPixels(4);
+    driver.setGenerations(350);
+
+    insertList("End");
+  }
+  Scenario("S Ramp (Bifurcation)") {
+    insertList("Same");
+    driver.setSettingS(true, 3);
+    driver.setVal1(0);
+    driver.setVal2(4.0);
+    driver.setCoupling(0, 1, 0.1);
+    insertList("End");
+  }
+  Scenario("Random S") {
+    insertList("Same");
+    driver.setSettingS(true, 2);
+    driver.setVal1(0);
+    driver.setVal2(4.0);
+    driver.setCoupling(2, 1, 0.1);
+    driver.setNeighC(0.9);
+    insertList("End");
+  }
+  Scenario("Random Init") {
+    insertList("Same");
+    driver.setSettingS(false, 2);
+    driver.setVal1(0);
+    driver.setVal2(1.0);
+    driver.setCoupling(1, 1, 0.1);
+    driver.setNeighC(0.9);
+    driver.setCellPixels(4);
+    driver.setGenerations(350);
+    insertList("End");
+  }
+
+

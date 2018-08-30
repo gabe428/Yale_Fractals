@@ -1,0 +1,327 @@
+<html>
+
+<!-- Mirrored from users.math.yale.edu/public_html/People/frame/Fractals/Software/random.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Aug 2018 06:26:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<title>Random Applet</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<script language=JavaScript>
+<!---hide from older browsers
+function make_arrays() {
+	var table_string = new Array();
+	table_string[0] = document.big_table.r1.value + "z" + document.big_table.s1.value + "z" + document.big_table.t1.value + "z" + document.big_table.p1.value + "z" + document.big_table.e1.value + "z" + document.big_table.f1.value + "z" + document.big_table.prob1.value + "z";
+	table_string[1] = document.big_table.r2.value + "z" + document.big_table.s2.value + "z" + document.big_table.t2.value + "z" + document.big_table.p2.value + "z" + document.big_table.e2.value + "z" + document.big_table.f2.value + "z" + document.big_table.prob2.value + "z";
+	table_string[2] = document.big_table.r3.value + "z" + document.big_table.s3.value + "z" + document.big_table.t3.value + "z" + document.big_table.p3.value + "z" + document.big_table.e3.value + "z" + document.big_table.f3.value + "z" + document.big_table.prob3.value + "z";
+	table_string[3] = document.big_table.r4.value + "z" + document.big_table.s4.value + "z" + document.big_table.t4.value + "z" + document.big_table.p4.value + "z" + document.big_table.e4.value + "z" + document.big_table.f4.value + "z" + document.big_table.prob4.value + "z";
+	table_string[4] = document.big_table.r5.value + "z" + document.big_table.s5.value + "z" + document.big_table.t5.value + "z" + document.big_table.p5.value + "z" + document.big_table.e5.value + "z" + document.big_table.f5.value + "z" + document.big_table.prob5.value + "z";
+	table_string[5] = document.big_table.r6.value + "z" + document.big_table.s6.value + "z" + document.big_table.t6.value + "z" + document.big_table.p6.value + "z" + document.big_table.e6.value + "z" + document.big_table.f6.value + "z" + document.big_table.prob6.value + "z";
+	table_string[6] = document.big_table.r7.value + "z" + document.big_table.s7.value + "z" + document.big_table.t7.value + "z" + document.big_table.p7.value + "z" + document.big_table.e7.value + "z" + document.big_table.f7.value + "z" + document.big_table.prob7.value + "z";
+	table_string[7] = document.big_table.r8.value + "z" + document.big_table.s8.value + "z" + document.big_table.t8.value + "z" + document.big_table.p8.value + "z" + document.big_table.e8.value + "z" + document.big_table.f8.value + "z" + document.big_table.prob8.value + "z";
+	table_string[8] = document.big_table.r9.value + "z" + document.big_table.s9.value + "z" + document.big_table.t9.value + "z" + document.big_table.p9.value + "z" + document.big_table.e9.value + "z" + document.big_table.f9.value + "z" + document.big_table.prob9.value + "z";
+	table_string[9] = document.big_table.r10.value + "z" + document.big_table.s10.value + "z" + document.big_table.t10.value + "z" + document.big_table.p10.value + "z" + document.big_table.e10.value + "z" + document.big_table.f10.value + "z" + document.big_table.prob10.value + "z";
+	table_string[10] = document.big_table.r11.value + "z" + document.big_table.s11.value + "z" + document.big_table.t11.value + "z" + document.big_table.p11.value + "z" + document.big_table.e11.value + "z" + document.big_table.f11.value + "z" + document.big_table.prob11.value + "z";
+	table_string[11] = document.big_table.r12.value + "z" + document.big_table.s12.value + "z" + document.big_table.t12.value + "z" + document.big_table.p12.value + "z" + document.big_table.e12.value + "z" + document.big_table.f12.value + "z" + document.big_table.prob12.value + "z";
+	table_string[12] = document.big_table.r13.value + "z" + document.big_table.s13.value + "z" + document.big_table.t13.value + "z" + document.big_table.p13.value + "z" + document.big_table.e13.value + "z" + document.big_table.f13.value + "z" + document.big_table.prob13.value + "z";
+	table_string[13] = document.big_table.r14.value + "z" + document.big_table.s14.value + "z" + document.big_table.t14.value + "z" + document.big_table.p14.value + "z" + document.big_table.e14.value + "z" + document.big_table.f14.value + "z" + document.big_table.prob14.value + "z";
+	table_string[14] = document.big_table.r15.value + "z" + document.big_table.s15.value + "z" + document.big_table.t15.value + "z" + document.big_table.p15.value + "z" + document.big_table.e15.value + "z" + document.big_table.f15.value + "z" + document.big_table.prob15.value + "z";
+	table_string[15] = document.big_table.r16.value + "z" + document.big_table.s16.value + "z" + document.big_table.t16.value + "z" + document.big_table.p16.value + "z" + document.big_table.e16.value + "z" + document.big_table.f16.value + "z" + document.big_table.prob16.value + "z";
+	table_string[16] = document.big_table.r17.value + "z" + document.big_table.s17.value + "z" + document.big_table.t17.value + "z" + document.big_table.p17.value + "z" + document.big_table.e17.value + "z" + document.big_table.f17.value + "z" + document.big_table.prob17.value + "z";
+	table_string[17] = document.big_table.r18.value + "z" + document.big_table.s18.value + "z" + document.big_table.t18.value + "z" + document.big_table.p18.value + "z" + document.big_table.e18.value + "z" + document.big_table.f18.value + "z" + document.big_table.prob18.value + "z";
+	table_string[18] = document.big_table.r19.value + "z" + document.big_table.s19.value + "z" + document.big_table.t19.value + "z" + document.big_table.p19.value + "z" + document.big_table.e19.value + "z" + document.big_table.f19.value + "z" + document.big_table.prob19.value + "z";
+	table_string[19] = document.big_table.r20.value + "z" + document.big_table.s20.value + "z" + document.big_table.t20.value + "z" + document.big_table.p20.value + "z" + document.big_table.e20.value + "z" + document.big_table.f20.value + "z" + document.big_table.prob20.value + "z";
+	table_string[20] = document.big_table.r21.value + "z" + document.big_table.s21.value + "z" + document.big_table.t21.value + "z" + document.big_table.p21.value + "z" + document.big_table.e21.value + "z" + document.big_table.f21.value + "z" + document.big_table.prob21.value + "z";
+	table_string[21] = document.big_table.r22.value + "z" + document.big_table.s22.value + "z" + document.big_table.t22.value + "z" + document.big_table.p22.value + "z" + document.big_table.e22.value + "z" + document.big_table.f22.value + "z" + document.big_table.prob22.value + "z";
+	table_string[22] = document.big_table.r23.value + "z" + document.big_table.s23.value + "z" + document.big_table.t23.value + "z" + document.big_table.p23.value + "z" + document.big_table.e23.value + "z" + document.big_table.f23.value + "z" + document.big_table.prob23.value + "z";
+	table_string[23] = document.big_table.r24.value + "z" + document.big_table.s24.value + "z" + document.big_table.t24.value + "z" + document.big_table.p24.value + "z" + document.big_table.e24.value + "z" + document.big_table.f24.value + "z" + document.big_table.prob24.value + "z";
+	
+	var winopts ='location=no,menubar=no,status=yes,titlebar=no,toolbar=no,width=800,height=600';
+	var newWin = open('', 'Randomness', winopts);
+	newWin.document.writeln("<html><head><title>Applet</title></head>");
+	newWin.document.writeln("<body>");
+	newWin.document.writeln("<applet code=random.class archive=random.jar width=650 height=506>");
+	for (i=0;i<=23;i++) {
+		if (table_string[i]=="zzzzzzz") {
+			var zeta = i-1;
+			newWin.document.writeln("<param name=rules value="+zeta+">");
+			i=100;
+			}
+		else
+			newWin.document.writeln("<param name=tablestring"+i+" value="+table_string[i]+">");
+	}
+	
+	newWin.document.writeln("</applet>");
+	newWin.document.writeln("</body></html>");
+	
+}
+//stop hiding --->
+</script>
+</head>
+
+<body>
+<form name=big_table method=post>
+<p><input type="button" value="Submit" name="sub" onClick=make_arrays();><input type="button" value="Reset" name="redo" onClick=location.reload()></p>
+<div align="center">
+  <center>
+  <table border="1" width="100%" cellspacing="0">
+    <tr>
+      <td width="12%" bordercolor="#FFFFFF" bordercolorlight="#FFFFFF" bordercolordark="#FFFFFF" valign="middle" align="center">&nbsp;</td>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">r</td>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">s</td>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">theta</td>
+      <td width="13%" bgcolor="#C0C0C0" valign="middle" align="center">phi</td>
+      <td width="13%" bgcolor="#C0C0C0" valign="middle" align="center">e</td>
+      <td width="13%" bgcolor="#C0C0C0" valign="middle" align="center">f</td>
+      <td width="13%" bgcolor="#C0C0C0" valign="middle" align="center">prob</td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">1</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r1" size="10" value=".5"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s1" size="10" value=".5"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t1" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p1" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e1" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f1" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob1" size="10" value=".333"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">2</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r2" size="10" value=".5"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s2" size="10" value=".5"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t2" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p2" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e2" size="10" value=".5"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f2" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob2" size="10" value=".333"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">3</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r3" size="10" value=".5"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s3" size="10" value=".5"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t3" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p3" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e3" size="10" value="0.0"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f3" size="10" value=".5"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob3" size="10" value=".334"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">4</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r4" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s4" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t4" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p4" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e4" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f4" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob4" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">5</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r5" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s5" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t5" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p5" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e5" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f5" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob5" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">6</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r6" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s6" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t6" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p6" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e6" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f6" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob6" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">7</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r7" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s7" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t7" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p7" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e7" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f7" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob7" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">8</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r8" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s8" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t8" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p8" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e8" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f8" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob8" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">9</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r9" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s9" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t9" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p9" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e9" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f9" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob9" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">10</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r10" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s10" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t10" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p10" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e10" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f10" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob10" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">11</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r11" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s11" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t11" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p11" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e11" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f11" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob11" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">12</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r12" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s12" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t12" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p12" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e12" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f12" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob12" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">13</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r13" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s13" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t13" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p13" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e13" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f13" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob13" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">14</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r14" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s14" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t14" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p14" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e14" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f14" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob14" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">15</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r15" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s15" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t15" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p15" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e15" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f15" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob15" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">16</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r16" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s16" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t16" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p16" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e16" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f16" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob16" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">17</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r17" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s17" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t17" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p17" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e17" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f17" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob17" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">18</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r18" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s18" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t18" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p18" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e18" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f18" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob18" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">19</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r19" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s19" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t19" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p19" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e19" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f19" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob19" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">20</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r20" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s20" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t20" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p20" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e20" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f20" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob20" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">21</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r21" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s21" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t21" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p21" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e21" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f21" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob21" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">22</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r22" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s22" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t22" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p22" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e22" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f22" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob22" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">23</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r23" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s23" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t23" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p23" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e23" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f23" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob23" size="10"></td>
+    </tr>
+    <tr>
+      <td width="12%" bgcolor="#C0C0C0" valign="middle" align="center">24</td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="r24" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="s24" size="10"></td>
+      <td width="12%" valign="middle" align="center"><input type="text" name="t24" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="p24" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="e24" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="f24" size="10"></td>
+      <td width="13%" valign="middle" align="center"><input type="text" name="prob24" size="10"></td>
+    </tr>
+  </table>
+  </center>
+</div>
+</form>
+</body>
+
+
+<!-- Mirrored from users.math.yale.edu/public_html/People/frame/Fractals/Software/random.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Aug 2018 06:26:34 GMT -->
+</html>
